@@ -13,7 +13,7 @@ uv add django-simple-eventlog
 pip install django-simple-eventlog
 ```
 
-Add `eventlog` to your `INSTALLED_APPS` in `settings.py`:
+Add `django_simple_eventlog` to your `INSTALLED_APPS` in `settings.py`:
 
 ```python
 INSTALLED_APPS = [
@@ -26,7 +26,6 @@ INSTALLED_APPS = [
 Run migrations to create the required database tables:
 
 ```bash
-python manage.py makemigrations django_simple_eventlog
 python manage.py migrate
 ```
 
