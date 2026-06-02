@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.conf import settings
 
-from eventlog.choices import EventLogAction
+from django_simple_eventlog.choices import EventLogAction
 
 class EventLog(models.Model):
     actor = models.ForeignKey(

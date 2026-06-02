@@ -4,7 +4,7 @@ from rest_framework.exceptions import ValidationError
 
 from django.db import models
 
-from eventlog.models import EventLog, RelatedValueEventLog
+from django_simple_eventlog.models import EventLog, RelatedValueEventLog
 
 JSON = Union[Dict[str, Any], List[Any], str, int, float, bool, None]
 

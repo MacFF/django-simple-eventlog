@@ -3,7 +3,7 @@ from string import Formatter
 from rest_framework import serializers
 from django.db.models import Model
 
-from eventlog.models import EventLog, RelatedValueEventLog
+from django_simple_eventlog.models import EventLog, RelatedValueEventLog
 
 
 class EventLogSerializer(serializers.ModelSerializer):

@@ -1,13 +1,16 @@
-# django-eventlog
+# django-simple-eventlog
 
 A reusable Django application for tracking and logging events and model changes. This library provides a structured way to maintain audit trails for user actions and system events.
 
 ## Installation
 
-You can install the package directly into your project using `uv` (or `pip`):
+You can install the package directly into your project via PyPI using `uv` (or `pip`):
 
 ```bash
-uv add ./eventlog
+uv add django-simple-eventlog
+```
+```bash
+pip install django-simple-eventlog
 ```
 
 Add `eventlog` to your `INSTALLED_APPS` in `settings.py`:
@@ -15,7 +18,7 @@ Add `eventlog` to your `INSTALLED_APPS` in `settings.py`:
 ```python
 INSTALLED_APPS = [
     # ...
-    'eventlog',
+    'django_simple_eventlog',
     # ...
 ]
 ```
@@ -23,7 +26,7 @@ INSTALLED_APPS = [
 Run migrations to create the required database tables:
 
 ```bash
-python manage.py makemigrations eventlog
+python manage.py makemigrations django_simple_eventlog
 python manage.py migrate
 ```
 
@@ -43,8 +46,8 @@ Use `EventLogService.log` to record an event. Here is a practical example of log
 from rest_framework import viewsets
 from rest_framework.response import Response
 from django.db import transaction
-from eventlog.services import EventLogService
-from eventlog.choices import EventLogAction
+from django_simple_eventlog.services import EventLogService
+from django_simple_eventlog.choices import EventLogAction
 
 class ExampleViewSet(viewsets.ModelViewSet):
     # ...
@@ -112,8 +115,8 @@ You can also log events directly from your Serializers, such as when creating a 
 ```python
 from rest_framework import serializers
 from django.db import transaction
-from eventlog.services import EventLogService
-from eventlog.choices import EventLogAction
+from django_simple_eventlog.services import EventLogService
+from django_simple_eventlog.choices import EventLogAction
 
 class ExampleSerializer(serializers.ModelSerializer):
     # ... your fields ...
@@ -175,7 +178,7 @@ In your project's `urls.py`, import the viewset and register it with a Django RE
 ```python
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from eventlog.views import EventLogViewSet
+from django_simple_eventlog.views import EventLogViewSet
 
 # Create a router and register our viewset
 router = DefaultRouter()
@@ -195,7 +198,7 @@ We also provide a handy `EventLogMixin` that you can add to any of your existing
 
 ```python
 from rest_framework import viewsets
-from eventlog.mixins import EventLogMixin
+from django_simple_eventlog.mixins import EventLogMixin
 
 class CertificateViewSet(EventLogMixin, viewsets.ModelViewSet):
     queryset = Certificate.objects.all()

@@ -2,8 +2,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.contrib.contenttypes.models import ContentType
 
-from eventlog.models import EventLog
-from eventlog.serializers import EventLogSerializer
+from django_simple_eventlog.models import EventLog
+from django_simple_eventlog.serializers import EventLogSerializer
 
 
 class EventLogMixin:

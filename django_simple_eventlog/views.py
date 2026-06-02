@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from django_filters import rest_framework as filters
-from eventlog.models import EventLog
-from eventlog.serializers import EventLogSerializer
+from django_simple_eventlog.models import EventLog
+from django_simple_eventlog.serializers import EventLogSerializer
 
 
 class EventLogFilter(filters.FilterSet):
